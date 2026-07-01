@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.tekle.thsdk": "file:F:/TFG-unity/unity-thsdk-v320_2024-08-02_09-22/THSDK-Unity v3.2.0/com.tekle.thsdk-3.2.0/package",
+    "com.tekle.thsdk": "file:C:/Users/angod/OneDrive/Documents/THSDK-Unity-v320/THSDK-Unity v3.2.0/com.tekle.thsdk-3.2.0/package",
     "com.unity.feature.development": "1.0.1",
     "com.unity.textmeshpro": "3.0.9",
     "com.unity.timeline": "1.7.7",

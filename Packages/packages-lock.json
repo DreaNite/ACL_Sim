@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.tekle.thsdk": {
-      "version": "file:F:/TFG-unity/unity-thsdk-v320_2024-08-02_09-22/THSDK-Unity v3.2.0/com.tekle.thsdk-3.2.0/package",
+      "version": "file:C:/Users/angod/OneDrive/Documents/THSDK-Unity-v320/THSDK-Unity v3.2.0/com.tekle.thsdk-3.2.0/package",
       "depth": 0,
       "source": "local",
       "dependencies": {}

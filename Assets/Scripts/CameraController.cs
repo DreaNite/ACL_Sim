@@ -177,14 +177,19 @@ namespace ACLSimulator.Core
             ComputeRigPose(rig, target, out Vector3 toPos, out Quaternion toRot);
             yield return LerpRigTo(rig, toPos, toRot, _stepLerpDuration);
 
-            _waitingAtViewpoint = true;
-            while (_waitingAtViewpoint)
-                yield return null;
+            bool isLastStep = _stepViewpoints != null && stepIndex == _stepViewpoints.Length - 1;
+
+            if (isLastStep)
+                yield return new WaitForSeconds(_stepDwellSeconds);
+            else
+            {
+                _waitingAtViewpoint = true;
+                while (_waitingAtViewpoint)
+                    yield return null;
+            }
 
             yield return LerpRigTo(rig, _defaultPos, _defaultRot, _stepLerpDuration);
 
-            // Reuse the welcome panel as a generic completion overlay for the last step.
-            bool isLastStep = _stepViewpoints != null && stepIndex == _stepViewpoints.Length - 1;
             if (isLastStep && _welcomePanel != null && _completionSeconds > 0f)
             {
                 if (_welcomeText != null) _welcomeText.text = _completionMessage;
