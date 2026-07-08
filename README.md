@@ -2,8 +2,7 @@
 
 Unity-based simulation of an ACL (Anterior Cruciate Ligament) reconstruction
 procedure, designed to run on a **Tekle holographic wall** via the THSDK with
-multi-user stereo rendering. External triggers from a sibling Python project
-drive the surgical steps over UDP.
+multi-user stereo rendering. External triggers from a sibling Python project (LAIAR) drive the surgical steps over UDP.
 
 ---
 
@@ -42,15 +41,14 @@ the holographic camera rig to the matching viewpoint.
 - **Tekle THSDK v3.2.0**, referenced by file path in `Packages/manifest.json`.
   This is a licensed package distributed by Tekle; without it the project will
   not compile.
-- **Python 3.11** with a `.venv` for the sibling Python project.
-- The bundled Unity modules: TextMeshPro, Timeline, Visual Scripting, UI, VR/XR.
+- The bundled Unity modules: TextMeshPro, Timeline.
 
 ## Project structure
 
 ```
 ACL_Sim/                            repo root
 ├── Assets/
-│   ├── Scenes/ACL Sim.unity        main (and only) scene
+│   ├── Scenes/ACL Sim.unity        main scene
 │   ├── Scripts/                    project scripts (see table below)
 │   ├── Prefabs/                    knee variants, drill, hands, doctor, OR
 │   ├── Models/, Audio/, Timeline/  art and timeline assets
@@ -59,17 +57,10 @@ ACL_Sim/                            repo root
 ├── ProjectSettings/
 ```
 
-> **Do not place the Python project inside `Assets/`.** Unity reimports
-> everything under `Assets/` and adds a `.meta` per file; a `.venv` with
-> thousands of files will slow the editor to a crawl and won't bring any
-> benefit.
-
 ## Setup
 
 1. Clone the repo.
-2. Open the project in Unity 2022.3.62f3. The THSDK package is referenced by
-   file path in `Packages/manifest.json`; if you don't have it at the exact
-   location, edit that entry to point at your local THSDK install.
+2. Open the project in Unity 2022.3.62f3. Import the THSDK package via Package Manager.
 3. Open `Assets/Scenes/ACL Sim.unity`.
 4. Clone the repo with the Python project and launch it.
 5. Select the **ControlManager** GameObject. On the **UdpSocket** component:
